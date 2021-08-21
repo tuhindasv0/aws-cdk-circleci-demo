@@ -36,4 +36,4 @@ jobs:
 
       - run:
           name: Deploy application
-          command: cdk deploy
+          command: cdk deploy -y
