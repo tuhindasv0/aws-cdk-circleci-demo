@@ -30,7 +30,7 @@ exports.main = async function(event, context) {
         };
       }
     }
-
+    console.log("Test")
     // We only accept GET for now
     return {
       statusCode: 400,
