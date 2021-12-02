@@ -21,7 +21,10 @@ jobs:
           command: |
             sudo npm install -g --unsafe-perm aws-cdk
             npm install
-
+            
+      - run:
+          name: cdk version check
+          command: cdk --version
       - save_cache:
           paths:
             - node_modules
