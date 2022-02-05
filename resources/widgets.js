@@ -41,12 +41,12 @@ exports.main = async function(event, context) {
 
         var getParams = {
           
-          ExpressionAttributeValues: {
-           ":associatedKey": {
-             S: "77815"
-            }
-          }, 
-          FilterExpression: "associatedKey=:associatedKey",
+          // ExpressionAttributeValues: {
+          //  ":associatedKey": {
+          //    S: "77815"
+          //   }
+          // }, 
+          // FilterExpression: "associatedKey=:associatedKey",
           TableName: tableName
          };
          console.log("Params>",getParams);
