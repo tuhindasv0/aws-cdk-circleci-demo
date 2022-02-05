@@ -18,7 +18,14 @@ exports.main = async function(event, context) {
              associatedKey: Math.floor(Math.random()*1000000000)
           }
       };
-      docClient.put(params).promise();
+      try {
+        const result=docClient.put(params).promise();
+        console.log(result);
+      } catch (error) {
+        console.log(error)
+        
+      }
+      
 
         const response =params.Item;
         return {
