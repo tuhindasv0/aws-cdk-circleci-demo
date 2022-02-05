@@ -23,6 +23,7 @@ exports.main = async function(event, context) {
           }
       };
       try {
+        console.log("params>",params)
         const result=await docClient.put(params).promise();
         console.log(result);
       } catch (error) {
