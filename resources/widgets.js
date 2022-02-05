@@ -48,7 +48,7 @@ exports.main = async function(event, context) {
           TableName: tableName
          };
          console.log("Params>",getParams);
-        const response =await docClient.scan(getParams);
+        const response =await docClient.scan(getParams).promise();
         console.log("Response >",response)
         return {
           statusCode: 200,
