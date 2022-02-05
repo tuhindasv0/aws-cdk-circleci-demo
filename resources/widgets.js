@@ -17,9 +17,9 @@ exports.main = async function(event, context) {
         var params = {
           TableName:tableName,          
           Item:{
-             id: id.toString,
-             value: value.toString,
-             associatedKey: associatedKey.toString
+             id: id.toString(),
+             value: value.toString(),
+             associatedKey: associatedKey.toString()
           }
       };
       try {
