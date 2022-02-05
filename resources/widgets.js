@@ -10,12 +10,16 @@ exports.main = async function(event, context) {
 
     if (method === "GET") {
       if (event.path === "/putItem") {
+        let id=Math.floor(Math.random()*100000);
+        let value=Math.floor(Math.random()*100000);
+        let associatedKey=Math.floor(Math.random()*100000);
+
         var params = {
-          TableName:tableName,
+          TableName:tableName,          
           Item:{
-             id: Math.floor(Math.random()*100000).toString,
-             value: Math.floor(Math.random()*1000000000000).toString,
-             associatedKey: Math.floor(Math.random()*1000000000).toString
+             id: id.toString,
+             value: value.toString,
+             associatedKey: associatedKey.toString
           }
       };
       try {
