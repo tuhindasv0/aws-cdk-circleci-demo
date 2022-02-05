@@ -39,7 +39,19 @@ exports.main = async function(event, context) {
         };
       } else if (event.path === "/getItem"){
 
-        const response ="you are inside get item method"
+        var getParams = {
+          
+          ExpressionAttributeValues: {
+           ":a": {
+             S: "77815"
+            }
+          }, 
+          FilterExpression: "associatedKey = :a",
+          TableName: tableName
+         };
+         console.log("Params>",getParams);
+        const response =await docClient.scan(getParams).promise();
+        console.log("Response >",response)
         return {
           statusCode: 200,
           body: JSON.stringify(response)
