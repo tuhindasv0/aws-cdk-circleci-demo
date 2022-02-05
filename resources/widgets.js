@@ -19,7 +19,7 @@ exports.main = async function(event, context) {
           }
       };
       try {
-        const result=docClient.put(params).promise();
+        const result=await docClient.put(params).promise();
         console.log(result);
       } catch (error) {
         console.log(error)
