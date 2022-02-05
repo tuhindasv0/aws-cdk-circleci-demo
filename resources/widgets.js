@@ -40,17 +40,15 @@ exports.main = async function(event, context) {
       } else if (event.path === "/getItem"){
 
         var getParams = {
+          FilterExpression: "associatedKey = :associatedKey",
+          ExpressionAttributeValues: {
+           ":associatedKey": { S: "77815" }
+          }, 
           
-          // ExpressionAttributeValues: {
-          //  ":associatedKey": {
-          //    S: "77815"
-          //   }
-          // }, 
-          // FilterExpression: "associatedKey=:associatedKey",
           TableName: tableName
          };
          console.log("Params>",getParams);
-        const response =await docClient.scan(getParams).promise();
+        const response =await docClient.scan(getParams);
         console.log("Response >",response)
         return {
           statusCode: 200,
