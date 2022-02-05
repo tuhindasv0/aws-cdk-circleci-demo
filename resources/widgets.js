@@ -40,9 +40,9 @@ exports.main = async function(event, context) {
       } else if (event.path === "/getItem"){
 
         var getParams = {
-          FilterExpression: "associatedKey = :associatedKey",
+          FilterExpression: "value = :value",
           ExpressionAttributeValues: {
-           ":associatedKey": { S: 77815 }
+           ":value": "67749"
           }, 
           
           TableName: tableName
