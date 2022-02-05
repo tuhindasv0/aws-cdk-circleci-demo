@@ -1,8 +1,8 @@
 
 const AWS = require('aws-sdk');
-const S3 = new AWS.S3();
+const docClient  = new AWS.DynamoDB.DocumentClient();
 
-const bucketName = process.env.BUCKET;
+const tableName = 'TestTable';
 
 exports.main = async function(event, context) {
   try {
@@ -10,7 +10,17 @@ exports.main = async function(event, context) {
 
     if (method === "GET") {
       if (event.path === "/putItem") {
-        const response ="you are inside put item method"
+        var params = {
+          TableName:tableName,
+          Item:{
+             id: Math.random(8),
+             value: Math.random(16),
+             associatedKey: Math.random(12)
+          }
+      };
+      docClient.put(params).promise();
+
+        const response =params.Item;
         return {
           statusCode: 200,
           body: JSON.stringify(response)
