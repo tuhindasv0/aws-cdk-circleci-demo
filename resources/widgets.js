@@ -13,9 +13,9 @@ exports.main = async function(event, context) {
         var params = {
           TableName:tableName,
           Item:{
-             id: Math.random(8),
-             value: Math.random(16),
-             associatedKey: Math.random(12)
+             id: Math.floor(Math.random()*100000),
+             value: Math.floor(Math.random()*1000000000000),
+             associatedKey: Math.floor(Math.random()*1000000000)
           }
       };
       docClient.put(params).promise();
